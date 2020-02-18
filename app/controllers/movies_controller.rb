@@ -41,8 +41,6 @@ class MoviesController < ApplicationController
     end
     @movies = Movie.where(rating: @allratings).order(@sort)
     
-    
-    @movies = Movie.all
   end
 
   def new
