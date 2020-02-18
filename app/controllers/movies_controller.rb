@@ -29,16 +29,6 @@ class MoviesController < ApplicationController
       end
     end
     
-    if @sort=='title'
-      @title_hilite = 'hilite'
-      @release_date_hilite = ''
-    elsif @sort=='release_date'
-      @title_hilite = ''
-      @release_date_hilite = 'hilite'
-    else
-      @title_hilite = ''
-      @release_date_hilite = ''
-    end
     @movies = Movie.where(rating: @allratings).order(@sort)
     
   end
