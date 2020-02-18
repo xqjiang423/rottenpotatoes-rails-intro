@@ -11,6 +11,7 @@ class MoviesController < ApplicationController
   end
 
   def index
+    @all_ratings=Movie.all_ratings
     @allratings=['G','PG','PG-13','NC-17','R']
     if params[:ratings].present?
       @allratings = params[:ratings].keys
