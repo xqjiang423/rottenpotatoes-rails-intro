@@ -14,19 +14,19 @@ class MoviesController < ApplicationController
     @allratings=['G','PG','PG-13','NC-17','R']
     if params[:ratings].present?
       @allratings = params[:ratings].keys
-      # session[:ratings] = params[:ratings]
+      session[:ratings] = params[:ratings]
     end
-    # if session[:ratings].present?
-    #   @allratings = session[:ratings].keys
-    # end
+    if session[:ratings].present?
+      @allratings = session[:ratings].keys
+    end
 
     if params[:sort].present?
       @sort = params[:sort]
-      # session[:sort] = params[:sort]
-    # else
-    #   if session[:sort].present?
-    #     @sort = session[:sort]
-    #   end
+      session[:sort] = params[:sort]
+    else
+      if session[:sort].present?
+        @sort = session[:sort]
+      end
     end
     
     @movies = Movie.where(rating: @allratings).order(@sort)
